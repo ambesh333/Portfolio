@@ -1,7 +1,13 @@
+import Image from "next/image";
+import { BorderBeam } from "../magicui/border-beam";
+import info from "./carbon.svg";
+
 export default function () {
   return (
-    <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border border-opacity-20 rounded-lg p-4">
-      <div className="w-16 h-16 bg-transparent border border-white rounded-full"></div>
+    <div className="bg-white  max-h-[15rem] bg-opacity-10 backdrop-filter backdrop-blur-lg border border-opacity-0 rounded-lg ">
+      <Image src={info} alt="snippet" />
+
+      <BorderBeam size={250} duration={12} delay={9} />
     </div>
   );
 }

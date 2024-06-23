@@ -1,6 +1,5 @@
 import Globe from "@/components/magicui/globe";
 import { Icons } from "@/data/icons";
-import { MapPin } from "lucide-react";
 
 export default function () {
   return (

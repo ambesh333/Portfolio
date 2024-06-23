@@ -1,53 +1,143 @@
 import React from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import { motion } from "framer-motion";
+import { Icons } from "@/data/icons";
+import "react-vertical-timeline-component/style.min.css";
+import sharpe from "../data/logo-icon-white.svg";
+import myDurbar from "../data/mydurbar.png";
+import Image from "next/image";
 
-import { workExperience } from "@/data";
-import { Button } from "./ui/MovingBorders";
+import { LinkPreview } from "@/components/ui/link-preview";
+
+const textVariant = (delay: any) => {
+  return {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 1.25,
+        delay: delay,
+      },
+    },
+  };
+};
+
+const experiences = [
+  {
+    title: "Front-End Developer",
+    company_name: "Sharpe Labs",
+    icon: sharpe,
+    iconBg: "#383E56",
+    date: "December 2023 - February 2024",
+    url: "https://earn.sharpe.ai/",
+    points: [
+      "Independently built a DEX aggregator facilitating seamless token swaps, showcasing proficiency in blockchain technology",
+      "Delivered 10+ engaging UX features (referral incentives, dynamic leaderboards, rewarding points system, interactive strategy cards) for a successful MVP, fostering a thriving user community",
+      "Empowered users with effortless exploration of Ethereum-based chains through a flexible search bar and dropdown menu, boosting discovery and navigation",
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    company_name: "MyDurbar",
+    icon: myDurbar,
+    iconBg: "#E6DEDD",
+    date: "July 2023 - October 2023",
+    url: "https://corporate.mydurbar.com/",
+    points: [
+      "Implemented a robust database system, seamlessly transitioning from data files to a meticulously organized database schema, resulting in a 40% reduction in data retrieval time and improved artist data management efficiency",
+      "Developed an artist registration page to collect and developed backend functionalities for the artist registration page, enabling seamless data collection and storage",
+    ],
+  },
+];
+
+const ExperienceCard = ({ experience }: any) => {
+  return (
+    <VerticalTimelineElement
+      visible={true}
+      contentStyle={{
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        color: "#FFF",
+        backdropFilter: "blur(10px)",
+        border: "1px solid rgba(255, 255, 255, 0.18)",
+        borderRadius: "0.5rem",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      date={experience.date}
+      iconStyle={{ background: experience.iconBg }}
+      icon={
+        <div className="flex justify-center items-center w-full h-full">
+          <Image
+            src={experience.icon}
+            className="w-[60%] h-[60%] text-white"
+            alt="icons"
+          />
+        </div>
+      }
+    >
+      <LinkPreview url={experience.url} className="font-bold">
+        <div>
+          <h3 className="text-white text-[24px] font-bold">
+            {experience.title}
+          </h3>
+
+          <p
+            className="text-white text-[16px] font-semibold"
+            style={{ margin: 0 }}
+          >
+            {experience.company_name}
+          </p>
+        </div>
+
+        <ul className="mt-5 list-disc ml-5 space-y-2">
+          {experience.points.map((point: any, index: any) => (
+            <li
+              key={`experience-point-${index}`}
+              className="text-white text-[14px] pl-1 tracking-wider"
+            >
+              {point}
+            </li>
+          ))}
+        </ul>
+      </LinkPreview>{" "}
+    </VerticalTimelineElement>
+  );
+};
 
 const Experience = () => {
   return (
-    <div className="py-20 w-full">
-      <h1 className="heading">
-        My <span className="text-purple">work experience</span>
-      </h1>
-
-      <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
-        {workExperience.map((card) => (
-          <Button
-            key={card.id}
-            //   random duration will be fun , I think , may be not
-            duration={Math.floor(Math.random() * 10000) + 10000}
-            borderRadius="1.75rem"
-            style={{
-              //   add these two
-              //   you can generate the color from here https://cssgradient.io/
-              background: "rgb(4,7,29)",
-              backgroundColor:
-                "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-              // add this border radius to make it more rounded so that the moving border is more realistic
-              borderRadius: `calc(1.75rem* 0.96)`,
-            }}
-            // remove bg-white dark:bg-slate-900
-            className="flex-1 text-black dark:text-white border-neutral-200 dark:border-slate-800"
-          >
-            <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
-              <img
-                src={card.thumbnail}
-                alt={card.thumbnail}
-                className="lg:w-32 md:w-20 w-16"
-              />
-              <div className="lg:ms-5">
-                <h1 className="text-start text-xl md:text-2xl font-bold">
-                  {card.title}
-                </h1>
-                <p className="text-start text-white-100 mt-3 font-semibold">
-                  {card.desc}
-                </p>
-              </div>
-            </div>
-          </Button>
-        ))}
+    <motion.section
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+      className="padding max-w-7xl mx-auto relative z-0"
+    >
+      <motion.div variants={textVariant(0)}>
+        <p className=" text-white sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider text-center">
+          What I have done so far{" "}
+        </p>
+        <h2 className=" text-purple font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-center">
+          Work Experience.
+        </h2>
+      </motion.div>
+      <div className="mt-20 flex flex-col">
+        <VerticalTimeline>
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`experience-${index}`}
+              experience={experience}
+            />
+          ))}
+        </VerticalTimeline>
       </div>
-    </div>
+    </motion.section>
   );
 };
 
