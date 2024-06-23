@@ -1,7 +1,7 @@
 import OrbitingCircles from "@/components/magicui/orbiting-circles";
 import { Icons } from "@/data/icons";
 
-export default function () {
+export default function Circles() {
   return (
     <div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-lg  ">
       <span

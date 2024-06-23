@@ -1,6 +1,3 @@
-import { gridItems } from "@/data";
-import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
-
 import { HireMe, Info, Location, Process, TechStack } from "./BentoComponents";
 
 const Grid = () => {

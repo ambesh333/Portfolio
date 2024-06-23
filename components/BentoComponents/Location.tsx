@@ -1,7 +1,7 @@
 import Globe from "@/components/magicui/globe";
 import { Icons } from "@/data/icons";
 
-export default function () {
+export default function Location() {
   return (
     <div className="relative flex h-full w-full max-h-[15rem] flex-col items-start overflow-hidden rounded-lg border bg-background  pb-40  md:pb-60 md:shadow-xl">
       <div className="flex w-full pt-5 px-10 flex-row items-center">

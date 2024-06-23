@@ -1,4 +1,4 @@
-export default function () {
+export default function Process() {
   return (
     <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border border-opacity-20 rounded-lg shadow-lg p-4">
       <p className="text-lg font-bold">

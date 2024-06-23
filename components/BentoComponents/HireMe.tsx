@@ -1,4 +1,4 @@
-export default function () {
+export default function HireMe() {
   return (
     <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border border-opacity-20 rounded-lg p-4">
       <h2 className="text-white">Hire me</h2>
