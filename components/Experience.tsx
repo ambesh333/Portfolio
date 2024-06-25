@@ -117,7 +117,7 @@ const Experience = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
-      className="padding max-w-7xl mx-auto relative z-0"
+      className="padding max-w-7xl mx-auto relative z-0 "
     >
       <motion.div variants={textVariant(0)}>
         <p className=" text-white sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider text-center">

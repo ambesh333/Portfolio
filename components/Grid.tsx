@@ -1,9 +1,16 @@
-import { HireMe, Info, Location, Process, TechStack } from "./BentoComponents";
+import {
+  HireMe,
+  Info,
+  Location,
+  Process,
+  TechStack,
+  FollowMe,
+} from "./BentoComponents";
 
 const Grid = () => {
   return (
     <section id="about">
-      <div className="w-full min-h-screen bg-black-900 ">
+      <div className="w-full min-h-screen bg-black-900 mb-10">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           <div className="col-span-2 row-span-2">
             <Info />
@@ -14,10 +21,15 @@ const Grid = () => {
           <div className="col-span-4">
             <TechStack />
           </div>
+
           <div className="col-span-1">
             <HireMe />
           </div>
-          <div className="col-span-3">
+          <div className="col-span-1">
+            <FollowMe />
+          </div>
+
+          <div className="col-span-2">
             <Process />
           </div>
         </div>
