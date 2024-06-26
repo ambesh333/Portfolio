@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import { Icons } from "@/data/icons";
 import "react-vertical-timeline-component/style.min.css";
 import sharpe from "../data/logo-icon-white.svg";
+import sharpeBanner from "../data/sharpebanner.svg";
+import myDurbarBanner from "../data/myDurbarbanner.svg";
 import myDurbar from "../data/mydurbar.png";
 import Image from "next/image";
 
@@ -35,19 +37,21 @@ const experiences = [
     title: "Front-End Developer",
     company_name: "Sharpe Labs",
     icon: sharpe,
+    banner: sharpeBanner,
     iconBg: "#383E56",
     date: "December 2023 - February 2024",
     url: "https://earn.sharpe.ai/",
     points: [
       "Independently built a DEX aggregator facilitating seamless token swaps, showcasing proficiency in blockchain technology",
       "Delivered 10+ engaging UX features (referral incentives, dynamic leaderboards, rewarding points system, interactive strategy cards) for a successful MVP, fostering a thriving user community",
-      "Empowered users with effortless exploration of Ethereum-based chains through a flexible search bar and dropdown menu, boosting discovery and navigation",
     ],
   },
   {
     title: "Full Stack Developer",
     company_name: "MyDurbar",
     icon: myDurbar,
+    banner: myDurbarBanner,
+
     iconBg: "#E6DEDD",
     date: "July 2023 - October 2023",
     url: "https://corporate.mydurbar.com/",
@@ -83,15 +87,17 @@ const ExperienceCard = ({ experience }: any) => {
       }
     >
       <LinkPreview url={experience.url} className="font-bold">
-        <div>
-          <h3 className="text-white text-[24px] font-bold">
+        <Image
+          src={experience.banner}
+          className="w-[100%] h-[60%] text-white"
+          alt="icons"
+        />
+        <div className="mt-2">
+          <h3 className="text-yellow text-[24px] font-bold">
             {experience.title}
           </h3>
 
-          <p
-            className="text-white text-[16px] font-semibold"
-            style={{ margin: 0 }}
-          >
+          <p className="text-white text-[16px] font-bold" style={{ margin: 0 }}>
             {experience.company_name}
           </p>
         </div>
@@ -100,7 +106,7 @@ const ExperienceCard = ({ experience }: any) => {
           {experience.points.map((point: any, index: any) => (
             <li
               key={`experience-point-${index}`}
-              className="text-white text-[14px] pl-1 tracking-wider"
+              className="text-yellow-50 text-[14px] pl-1 tracking-wider font-thin"
             >
               {point}
             </li>

@@ -40,6 +40,11 @@ const config = {
           950: "#030712",
           400: "#6b7280",
         },
+        yellow: {
+          DEFAULT: "#F1C770",
+          1: "#FFF2CB",
+          2: "#F2C670",
+        },
         green: {
           DEFAULT: "#22c55e",
         },
@@ -51,7 +56,7 @@ const config = {
         blue: {
           "100": "#E4ECFF",
         },
-        purple: "#F66E2C",
+        purple: "#F1C770",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
