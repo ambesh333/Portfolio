@@ -1,6 +1,8 @@
 import { Crown } from "lucide-react";
 import { AnimatedSubscribeButton } from "@/components/magicui/animated-subscribe-button";
 import { Mail, MailCheck } from "lucide-react";
+import DotPattern from "../magicui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 const AnimatedSubscribeButtonDemo = () => {
   return (
@@ -29,7 +31,7 @@ const AnimatedSubscribeButtonDemo = () => {
 export default function HireMeSection() {
   return (
     <div className="flex items-center justify-center  bg-black h-full">
-      <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg w-full h-full">
+      <div className="border backdrop-blur-lg rounded-xl p-6 shadow-lg w-full h-full">
         <div className="flex items-center justify-center mb-4">
           <div className=" bg-yellow p-2 rounded-full flex items-center justify-center">
             <Crown color="black" />
@@ -44,6 +46,11 @@ export default function HireMeSection() {
         <div className="flex flex-col items-center space-y-4">
           <AnimatedSubscribeButtonDemo />
         </div>
+        <DotPattern
+          className={cn(
+            "[mask-image:radial-gradient(200px_circle_at_center,white,transparent)]"
+          )}
+        />
       </div>
     </div>
   );

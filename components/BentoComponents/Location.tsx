@@ -11,7 +11,7 @@ export default function Location() {
           </span>
         </div>
       </div>
-      <div className="top-10 hidden lg:block">
+      <div className="top-10 ">
         <Globe />
       </div>
       <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />

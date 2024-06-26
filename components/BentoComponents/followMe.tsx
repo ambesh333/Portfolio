@@ -14,10 +14,10 @@ export default function FollowMe() {
         <div className="flex flex-col gap-3 items-center justify-center">
           <div
             className="
-
            pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black
             to-gray-300/80 bg-clip-text text-2xl font-semibold leading-none
             text-transparent dark:from-white dark:to-slate-900/10 
+            text-center
           "
           >
             Online Presence
