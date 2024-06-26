@@ -32,7 +32,7 @@ export default function Circles() {
       {/* Outer Circles (reverse) */}
       <OrbitingCircles
         className="h-[50px] w-[50px] border-none bg-transparent"
-        radius={190}
+        radius={150}
         duration={20}
         reverse
       >
@@ -40,7 +40,7 @@ export default function Circles() {
       </OrbitingCircles>
       <OrbitingCircles
         className="h-[50px] w-[50px] border-none bg-transparent"
-        radius={190}
+        radius={150}
         duration={20}
         delay={20}
         reverse

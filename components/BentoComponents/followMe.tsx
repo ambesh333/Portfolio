@@ -5,13 +5,13 @@ import { navItems } from "../../data/index";
 export default function FollowMe() {
   return (
     <div className="flex items-center justify-center w-full bg-black">
-      <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg w-full ">
-        <div className="flex flex-row gap-1 items-center justify-center">
-          <SunMedium color="rgb(190 193 221)" />
-          <div className="text-md font-bold text-gray-400">Follow Me</div>
+      <div className="bg-yellow-1 backdrop-filter backdrop-blur-sm bg-opacity-10 rounded-xl p-6 shadow-lg w-full ">
+        <div className="flex flex-row gap-1 items-center justify-center mb-1">
+          <SunMedium color="#F2C670" />
+          <div className="text-md font-bold text-yellow-1">Follow Me</div>
         </div>
 
-        <div className="flex flex-col gap-3 items-center justify-center">
+        <div className="flex flex-col gap-3 items-center justify-center mb-1">
           <div
             className="
            pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black
@@ -28,7 +28,7 @@ export default function FollowMe() {
             <div
               className="flex justify-start items-center h-15 w-full  p-2 gap-2 mt-3
 
-            bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 
+            bg-yellow rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 
             
             "
               key={name}
