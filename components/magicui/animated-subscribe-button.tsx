@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-
 interface AnimatedSubscribeButtonProps {
   buttonColor: string;
   buttonColorChange: string;
@@ -11,6 +10,17 @@ interface AnimatedSubscribeButtonProps {
   initialText: React.ReactElement | string;
   changeText: React.ReactElement | string;
 }
+
+const copyToClipboard = (text: string) => {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      console.log("Email copied to clipboard");
+    })
+    .catch((err) => {
+      console.error("Failed to copy email: ", err);
+    });
+};
 
 export const AnimatedSubscribeButton: React.FC<
   AnimatedSubscribeButtonProps
@@ -24,12 +34,19 @@ export const AnimatedSubscribeButton: React.FC<
 }) => {
   const [isSubscribed, setIsSubscribed] = useState<boolean>(subscribeStatus);
 
+  const handleClick = () => {
+    if (!isSubscribed) {
+      copyToClipboard("ambeshgaunker@gmail.com");
+    }
+    setIsSubscribed(!isSubscribed);
+  };
+
   return (
     <AnimatePresence mode="wait">
       {isSubscribed ? (
         <motion.button
           className={`relative flex w-[200px] items-center justify-center overflow-hidden rounded-md bg-${buttonColorChange} p-[10px] outline outline-1 outline-black`}
-          onClick={() => setIsSubscribed(false)}
+          onClick={handleClick}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -48,7 +65,7 @@ export const AnimatedSubscribeButton: React.FC<
         <motion.button
           className="relative flex w-[200px] cursor-pointer items-center justify-center rounded-md border-none p-[10px]"
           style={{ backgroundColor: buttonColor, color: buttonTextColor }}
-          onClick={() => setIsSubscribed(true)}
+          onClick={handleClick}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

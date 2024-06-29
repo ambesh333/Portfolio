@@ -5,6 +5,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { projects } from "@/data";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const textVariant = (delay: any) => {
   return {
@@ -44,13 +45,13 @@ const RecentProjects = () => {
       </motion.section>
 
       <section id="projects">
-        <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
+        <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10 ">
           {projects.map((item) => (
             <div
-              className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+              className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw] "
               key={item.id}
             >
-              <div className="">
+              <div className="bg-glass-bg backdrop-blur-xs border border-glass-border p-6 rounded-3xl">
                 <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
                   <div
                     className="relative w-full h-full overflow-hidden lg:rounded-3xl"
@@ -61,9 +62,9 @@ const RecentProjects = () => {
                   <Image
                     src={item.img}
                     alt="cover"
-                    className="z-10 absolute bottom-0"
-                    width="100"
-                    height="100"
+                    className="z-10 absolute bottom-0 rounded-xl"
+                    layout="fill"
+                    objectFit="cover"
                   />
                 </div>
 
@@ -93,10 +94,10 @@ const RecentProjects = () => {
                       >
                         <Image
                           src={icon}
-                          alt="icon5"
+                          alt="icon"
                           className="p-2"
-                          width="100"
-                          height="100"
+                          layout="fill"
+                          objectFit="contain"
                         />
                       </div>
                     ))}
@@ -104,7 +105,11 @@ const RecentProjects = () => {
 
                   <div className="flex justify-center items-center">
                     <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                      Check Live Site
+                      <Link href={item.link} passHref legacyBehavior>
+                        <a target="_blank" rel="noopener noreferrer">
+                          Check Live Site
+                        </a>
+                      </Link>
                     </p>
                     <FaLocationArrow className="ms-3" color="#CBACF9" />
                   </div>

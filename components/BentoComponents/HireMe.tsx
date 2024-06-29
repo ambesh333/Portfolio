@@ -28,6 +28,17 @@ const AnimatedSubscribeButtonDemo = () => {
   );
 };
 
+const copyToClipboard = (text: string) => {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      console.log("Email copied to clipboard");
+    })
+    .catch((err) => {
+      console.error("Failed to copy email: ", err);
+    });
+};
+
 export default function HireMeSection() {
   return (
     <div className="flex items-center justify-center  bg-black h-full">
@@ -38,7 +49,7 @@ export default function HireMeSection() {
           </div>
         </div>
         <h2 className="text-white text-2xl font-semibold text-center mb-2">
-          Let&apos;s Work Together
+          Let&apos;s work together
         </h2>
         <p className="text-gray-300 text-center mb-6">
           Let&apos;s Make Magic Happen Together!

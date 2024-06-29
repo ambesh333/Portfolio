@@ -36,7 +36,7 @@ const Hero = () => {
                 className="text-center text-[40px] md:text-5xl lg:text-6xl"
               />
               <FlipWords
-                className="upperCase text-center text-[40px] md:text-5xl lg:text-6xl"
+                className="uppercase text-center font-bold text-[40px] md:text-5xl lg:text-6xl"
                 words={words}
               />
               <TextGenerateEffect
